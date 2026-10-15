@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Quest 💗</title>
+
+<style>
+  
+/* Bingkai foto pacar */
+.foto-frame {
+  width: 190px;
+  height: 190px;
+  margin: 25px auto;
+  padding: 6px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #fff0a8,
+    #ff78bd,
+    #ffc9e2,
+    #fff0a8
+  );
+  box-shadow:
+    0 0 20px #ff80bc,
+    0 0 45px #ff4fa8;
+  animation: fotoGlow 3s ease-in-out infinite alternate;
+}
+
+.foto-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #411744;
+}
+
+@keyframes fotoGlow {
+  from {
+    box-shadow: 0 0 15px #ff80bc;
+  }
+  to {
+    box-shadow: 0 0 35px #ffb6da;
+  }
+}
+
+.foto-caption {
+  color: #ffd5e8;
+  font-style: italic;
+  margin: 10px 0 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, #70285f, transparent 55%),
+    linear-gradient(140deg, #160b2d, #411744, #160b2d);
+}
+
+.container {
+  width: 90%;
+  max-width: 520px;
+  margin: auto;
+  padding: 30px 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #ffacd5;
+  border-radius: 30px;
+  color: #ffd9eb;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: 38px;
+  color: #ffc5e2;
+  text-shadow: 0 0 20px #ff55ad;
+}
+
+h2 {
+  color: #ffd1e7;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.hero {
+  font-size: 85px;
+  margin: 20px 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-12px); }
+}
+
+.card {
+  margin-top: 20px;
+  padding: 24px 18px;
+  border: 1px solid rgba(255, 190, 225, 0.4);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 10px 30px #10051d55;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 14px;
+  border: none;
+  border-radius: 13px;
+  background: linear-gradient(90deg, #ff80b8, #ffc3df);
+  color: #42132f;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button:disabled {
+  background: #80677b;
+  color: #ddd;
+}
+
+.secondary {
+  background: transparent;
+  border: 1px solid #ffaed4;
+  color: white;
+}
+
+.progress-bg {
+  height: 10px;
+  margin-top: 20px;
+  background: #ffffff25;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#progress {
+  width: 0%;
+  height: 100%;
+  background: #ff8bc4;
+  transition: width 0.5s;
+}
+
+.quest {
+  text-align: left;
+  padding: 14px;
+  margin: 12px 0;
+  background: #ffffff0e;
+  border: 1px solid #ffffff25;
+  border-radius: 12px;
+}
+
+.quest span {
+  color: #ffd2e9;
+  font-size: 13px;
+}
+
+.screen {
+  display: none;
+  animation: appear 0.5s ease;
+}
+
+#home {
+  display: block;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result {
+  font-size: 65px;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: rise 4s linear forwards;
+  z-index: 5;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+footer {
+  margin: 30px 0 10px;
+  color: #eebbd6;
+  font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="badge">SPECIAL BIRTHDAY MISSION</div>
+
+  <div class="progress-bg">
+    <div id="progress"></div>
+  </div>
+
+  <!-- HALAMAN AWAL -->
+  <section class="screen" id="home">
+    <div class="hero">🎮💗</div>
+    
+<div class="foto-frame">
+  <img src="mygirl.jpg" alt="Foto pacarku">
+</div>
+
+<p class="foto-caption">
+  ✨ My favorite person in the world ✨
+</p>
+
+
+    <h1>Birthday Quest</h1>
+
+    <p>
+      Halo, pemain spesial! 🌷<br>
+      Hari ini ada petualangan rahasia
+      yang sudah disiapkan khusus untukmu.
+    </p>
+
+    <div class="card">
+      <h2>🎯 Misi Utama</h2>
+      <p>
+        Selesaikan 3 misi untuk membuka
+        hadiah ulang tahun rahasia.
+      </p>
+
+      <div class="quest">
+        💌 <b>Misi 1: Pesan Rahasia</b><br>
+        <span>Temukan pesan tersembunyi.</span>
+      </div>
+
+      <div class="quest">
+        💖 <b>Misi 2: Ujian Hati</b><br>
+        <span>Jawab pertanyaan spesial.</span>
+      </div>
+
+      <div class="quest">
+        🎁 <b>Misi 3: Hadiah Terakhir</b><br>
+        <span>Buka kejutan ulang tahunmu.</span>
+      </div>
+
+      <button onclick="mulaiQuest()">
+        MULAI PETUALANGAN ▶
+      </button>
+    </div>
+  </section>
+
+  <!-- MISI 1 -->
+  <section class="screen" id="misi1">
+    <div class="hero">💌</div>
+
+    <h1>Misi 1</h1>
+    <h2>Pesan Rahasia</h2>
+
+    <div class="card">
+      <p>
+        Sebelum melanjutkan petualangan,
+        kamu harus membuka pesan rahasia ini.
+      </p>
+
+      <button onclick="bukaPesan()">
+        BUKA PESAN 🔓
+      </button>
+
+      <div id="pesanRahasia" style="display:none">
+        <h2>✨ Pesan Terbuka!</h2>
+        <p>
+          Kamu adalah seseorang yang istimewa.
+          Hari ini adalah hari untuk merayakan
+          kehadiranmu dan semua kebahagiaan
+          yang kamu bawa ke dunia. 🌷
+        </p>
+
+        <button onclick="selesaiMisi1()">
+          MISI SELESAI ✓
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISI 2 -->
+  <section class="screen" id="misi2">
+    <div class="hero">💖</div>
+
+    <h1>Misi 2</h1>
+    <h2>Ujian Hati</h2>
+
+    <div class="card">
+      <p>
+        Pertanyaan spesial untuk pemain
+        paling istimewa hari ini.
+      </p>
+
+      <h3>Hari ini kamu harus mendapatkan apa?</h3>
+
+      <button onclick="jawab(false)">
+        A. Banyak tugas sekolah 📚
+      </button>
+
+      <button onclick="jawab(true)">
+        B. Kebahagiaan dan doa terbaik 🌷
+      </button>
+
+      <button onclick="jawab(false)">
+        C. Hari yang biasa saja ☁️
+      </button>
+
+      <p id="hasilJawaban"></p>
+    </div>
+  </section>
+
+  <!-- MISI 3 -->
+  <section class="screen" id="misi3">
+    <div class="hero">🎁</div>
+
+    <h1>Misi 3</h1>
+    <h2>Hadiah Terakhir</h2>
+
+    <div class="card">
+      <p>
+        Kamu sudah sampai di misi terakhir!
+        Ada hadiah spesial yang menunggumu.
+      </p>
+
+      <button onclick="bukaHadiah()">
+        BUKA HADIAH 💝
+      </button>
+
+      <div id="hadiah" style="display:none">
+        <div class="result">🎂💐💗</div>
+        
+<div class="foto-frame">
+  <img src="mygirl.jpg" alt="Foto ulang tahun">
+</div>
+
+<p class="foto-caption">
+  🌷 The birthday girl 🌷
+</p>
+
+
+        <h2>Happy Birthday, Sayangku!</h2>
+
+        <p>
+          Selamat ulang tahun, perempuan yang istimewa. 💕
+          <br><br>
+
+          Semoga kamu selalu sehat, bahagia,
+          dimudahkan dalam setiap langkah,
+          dan semua impianmu perlahan terwujud.
+          <br><br>
+
+          Jangan pernah lupa bahwa kamu berharga,
+          kamu pantas mendapatkan hal-hal baik,
+          dan senyummu layak dirayakan.
+          <br><br>
+
+          Terima kasih sudah menjadi bagian
+          indah dalam hidupku. Semoga kita
+          bisa terus saling mendukung dan
+          membuat banyak kenangan manis bersama.
+          <br><br>
+
+          Hari ini adalah harimu.
+          Semoga kebahagiaan selalu menyertaimu.
+          <br><br>
+
+          <b>I LOVE YOU, SAYANGKU! 💗</b>
+        </p>
+
+        <button onclick="selesaiQuest()">
+          SELESAIKAN QUEST 🏆
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENDING -->
+  <section class="screen" id="ending">
+    <div class="hero">🏆</div>
+
+    <h1>QUEST COMPLETED!</h1>
+
+    <div class="card">
+      <div class="result">💖🌹💖</div>
+
+      <h2>Selamat Ulang Tahun!</h2>
+
+      <p>
+        Semua misi berhasil diselesaikan!
+        <br>
+        Hadiah terbaik hari ini adalah
+        melihatmu bahagia.
+        <br><br>
+        Semoga tahun barumu penuh
+        cerita indah dan harapan baru. ✨
+      </p>
+
+      <h2>YOU ARE SPECIAL 💗</h2>
+
+      <button onclick="location.reload()">
+        MAIN LAGI ↻
+      </button>
+    </div>
+  </section>
+
+  <footer>
+    Made with love, especially for you 💗
+  </footer>
+
+</div>
+
+<script>
+const namaPacar = "Sayangku";
+// Ganti dengan nama pacarmu.
+
+let misiSelesai = 0;
+
+function tampilkan(id) {
+  document.querySelectorAll(".screen").forEach(
+    layar => layar.style.display = "none"
+  );
+
+  document.getElementById(id).style.display = "block";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function updateProgress() {
+  document.getElementById("progress").style.width =
+    (misiSelesai / 3 * 100) + "%";
+}
+
+function mulaiQuest() {
+  tampilkan("misi1");
+}
+
+function bukaPesan() {
+  document.getElementById("pesanRahasia").style.display =
+    "block";
+}
+
+function selesaiMisi1() {
+  misiSelesai = 1;
+  updateProgress();
+  tampilkan("misi2");
+}
+
+function jawab(benar) {
+  const hasil = document.getElementById("hasilJawaban");
+
+  if (benar) {
+    hasil.innerHTML =
+      "Benar! 💗 Kamu pantas mendapatkan banyak kebahagiaan!";
+    misiSelesai = 2;
+    updateProgress();
+
+    setTimeout(() => tampilkan("misi3"), 1400);
+  } else {
+    hasil.textContent =
+      "Coba lagi ya! Pilih jawaban yang paling baik untukmu 🌷";
+  }
+}
+
+function bukaHadiah() {
+  document.getElementById("hadiah").style.display = "block";
+  buatHati(35);
+}
+
+function selesaiQuest() {
+  misiSelesai = 3;
+  updateProgress();
+  tampilkan("ending");
+  buatHati(50);
+}
+
+function buatHati(jumlah) {
+  for (let i = 0; i < jumlah; i++) {
+    const h = document.createElement("div");
+    h.className = "heart";
+
+    h.textContent = ["💗", "💕", "💖", "🌸", "✨"][
+      Math.floor(Math.random() * 5)
+    ];
+
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.fontSize = (16 + Math.random() * 22) + "px";
+    h.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6500);
+  }
+}
+
+// Nama bisa diubah sesuai nama pacar.
+document.title = "Birthday Quest untuk " + namaPacar + " 💗";
+</script>
+
+</body>
+</html>
