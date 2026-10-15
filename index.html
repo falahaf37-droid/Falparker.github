@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Favorite Girl 🌷</title>
+
+<style>
+  
+/* GALERI FOTO LUCU */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+.polaroid {
+  background: #fffafd;
+  padding: 10px 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px #b84d8330;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.polaroid:nth-child(odd) {
+  transform: rotate(-3deg);
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: 0 12px 28px #b84d8350;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.polaroid p {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #c34f88;
+  font-weight: bold;
+}
+
+.memory-card {
+  max-width: 480px;
+  margin: 18px auto;
+  padding: 22px;
+  background: linear-gradient(135deg, #fff8fc, #ffe2ef);
+  border: 1px solid white;
+  border-radius: 22px;
+  box-shadow: 0 8px 25px #d66b9c20;
+  line-height: 1.9;
+  text-align: left;
+}
+
+.memory-card .icon {
+  font-size: 35px;
+  margin-bottom: 8px;
+}
+
+.memory-card h3 {
+  color: #d84f91;
+  margin-bottom: 8px;
+}
+
+.gallery-note {
+  font-size: 13px;
+  color: #a45b7e;
+  margin-top: 15px;
+}
+
+@media (max-width: 360px) {
+  .gallery {
+    gap: 10px;
+  }
+
+  .polaroid img {
+    height: 145px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background: linear-gradient(180deg, #ffe4f0, #f9c9e5, #fff0f6);
+  color: #854567;
+  overflow-x: hidden;
+}
+
+/* BUNGA DEKORASI */
+.flower {
+  position: fixed;
+  top: -50px;
+  z-index: 5;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+/* HALAMAN PEMBUKA */
+.hero {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.tag {
+  padding: 10px 20px;
+  border: 1px solid #e99ac1;
+  border-radius: 30px;
+  letter-spacing: 3px;
+  font-size: 11px;
+  background: #ffffff70;
+}
+
+.bouquet {
+  font-size: 80px;
+  margin: 25px 0 10px;
+  animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-5deg) scale(1); }
+  50% { transform: rotate(5deg) scale(1.08); }
+}
+
+h1 {
+  color: #d84f91;
+  font-size: clamp(35px, 9vw, 55px);
+  margin: 12px 0;
+  text-shadow: 0 4px 15px #ffadd4;
+}
+
+.subtitle {
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 10px auto 25px;
+}
+
+button {
+  border: none;
+  background: linear-gradient(135deg, #ff79b7, #e85b9c);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 14px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px #e978ad55;
+  transition: 0.3s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+/* BAGIAN KONTEN */
+section {
+  padding: 65px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 29px;
+  color: #d84f91;
+  margin-bottom: 15px;
+}
+
+.section-desc {
+  max-width: 500px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+}
+
+/* KARTU FOTO */
+.photo-card {
+  max-width: 330px;
+  margin: 25px auto;
+  padding: 15px;
+  border-radius: 25px;
+  background: #fff8fc;
+  box-shadow: 0 10px 35px #d66b9c30;
+  transform: rotate(-2deg);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 3px solid #ffd3e7;
+  display: block;
+}
+
+.photo-caption {
+  padding: 18px 5px 8px;
+  font-size: 17px;
+  font-style: italic;
+}
+
+/* KARTU PESAN */
+.card {
+  max-width: 500px;
+  margin: 18px auto;
+  padding: 25px;
+  background: #ffffffa8;
+  border: 1px solid #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 8px 25px #c96c9920;
+  line-height: 1.9;
+}
+
+.card h3 {
+  color: #d84f91;
+  margin-bottom: 12px;
+  font-size: 21px;
+}
+
+.emoji {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+/* DAFTAR ALASAN */
+.reason {
+  max-width: 450px;
+  margin: 12px auto;
+  padding: 16px;
+  text-align: left;
+  background: #fff8fc;
+  border-radius: 18px;
+  line-height: 1.7;
+  box-shadow: 0 4px 12px #d66b9c18;
+}
+
+/* SURAT */
+.letter {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 28px 23px;
+  border-radius: 20px;
+  background: #fffaf0;
+  border: 2px dashed #f0a2c5;
+  line-height: 2;
+  text-align: left;
+  white-space: pre-line;
+}
+
+/* HITUNGAN HATI */
+.big-heart {
+  font-size: 75px;
+  display: inline-block;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* TOMBOL KEJUTAN */
+#surprise {
+  display: none;
+  margin-top: 25px;
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f4b8d5;
+  color: #854567;
+  line-height: 2;
+}
+
+/* TOMBOL MUSIK */
+.music-btn {
+  position: fixed;
+  right: 15px;
+  bottom: 18px;
+  z-index: 10;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 19px;
+}
+
+/* HP */
+@media (max-width: 480px) {
+  .hero { padding: 30px 18px; }
+  section { padding: 50px 17px; }
+  .bouquet { font-size: 68px; }
+  .card { padding: 22px 18px; }
+  .photo-card img { height: 290px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN PEMBUKA -->
+<header class="hero">
+  <div class="tag">A LITTLE GIFT FOR YOU 🌷</div>
+
+  <div class="bouquet">💐</div>
+
+  <p>Untuk perempuan yang spesial...</p>
+
+  <h1>Hi, Pretty Girl! 💗</h1>
+
+  <p class="subtitle">
+    Aku punya sesuatu yang kecil,
+    sederhana, tetapi dibuat dengan
+    penuh perhatian khusus untuk kamu. 🧸
+  </p>
+
+  <button onclick="document.getElementById('tentang').scrollIntoView()">
+    Buka hadiahmu 🌸 ↓
+  </button>
+</header>
+
+<!-- BAGIAN FOTO -->
+<section id="tentang">
+  <h2 class="section-title">My Favorite Person 🌷</h2>
+
+  <p class="section-desc">
+    Kalau bunga punya banyak warna,
+    dunia juga punya banyak orang.
+    Tapi ada satu orang yang selalu
+    berhasil bikin hari terasa lebih indah. 💕
+  </p>
+
+  <div class="photo-card">
+    <img src="mygirl.jpg" alt="Foto perempuan spesial"
+         onerror="this.style.display='none'; document.getElementById('foto-error').style.display='block';">
+
+    <div id="foto-error" style="display:none; padding:35px 5px;">
+      <div style="font-size:65px;">🌸</div>
+      <p>Foto spesial kamu di sini 💗</p>
+      <small>Unggah file mygirl.jpg ke repository GitHub.</small>
+    </div>
+
+    <p class="photo-caption">
+      "Senyummu adalah salah satu hal kecil
+      yang bikin hari terasa lebih cerah." 🌼
+    </p>
+  </div>
+</section>
+  
+<!-- GALERI FOTO KENANGAN -->
+<section id="galeri">
+  <h2 class="section-title">
+    Our Little Memories 📸
+  </h2>
+
+  <p class="section-desc">
+    Setiap foto punya cerita kecil.
+    Ini tempat untuk menyimpan momen
+    indah dan senyum favoritmu. 🌷
+  </p>
+
+  <div class="gallery">
+    <div class="polaroid">
+      <img src="foto1.jpg" alt="Kenangan pertama">
+      <p>🌸 Pretty Girl</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="foto2.jpg" alt="Kenangan kedua">
+      <p>🎀 Sweet Moment</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="foto3.jpg" alt="Kenangan ketiga">
+      <p>💗 My Favorite</p>
+    </div>
+
+    <div class="polaroid">
+      <div style="font-size:80px; padding:35px 0;">
+        💐
+      </div>
+      <p>🌷 A Flower For You</p>
+    </div>
+  </div>
+
+  <p class="gallery-note">
+    Made with love, flowers, and little happiness ✨
+  </p>
+</section>
+
+<!-- KARTU KENANGAN -->
+<section>
+  <h2 class="section-title">
+    Little Things About You 🧸
+  </h2>
+
+  <div class="memory-card">
+    <div class="icon">🌷💗</div>
+    <h3>Untuk si paling cantik</h3>
+    <p>
+      Semoga hari-harimu selalu punya
+      alasan untuk tersenyum. Jangan lupa
+      bahwa kamu berharga, kamu istimewa,
+      dan kamu tidak harus menjadi sempurna
+      untuk layak mendapatkan kebahagiaan.
+    </p>
+  </div>
+
+  <div class="memory-card">
+    <div class="icon">🌻✨</div>
+    <h3>Wish for you</h3>
+    <p>
+      Semoga banyak hal baik datang
+      kepadamu. Semoga impianmu tumbuh
+      seperti bunga di musim semi dan
+      semoga kamu selalu punya keberanian
+      untuk mencoba hal-hal baru.
+    </p>
+  </div>
+
+  <div class="memory-card">
+    <div class="icon">🦋🌸</div>
+    <h3>Our little promise</h3>
+    <p>
+      Mari saling menghargai, saling
+      mendengarkan, dan tetap menjadi
+      diri sendiri. Semoga setiap kenangan
+      yang kita buat membawa cerita baik
+      untuk dikenang nanti. 💕
+    </p>
+  </div>
+</section>
+
+
+<!-- PESAN MANIS -->
+<section>
+  <h2 class="section-title">A Little Message 💌</h2>
+
+  <div class="card">
+    <div class="emoji">🐻🎀</div>
+
+    <p>
+      Haiii kamu yang lucu! Hehehe. 💗
+      <br><br>
+      Aku cuma mau bilang kalau kamu itu
+      berharga. Jangan terlalu keras sama
+      diri sendiri, yaa. Kalau harimu
+      melelahkan, jangan lupa istirahat.
+      Kalau ada sesuatu yang bikin kamu
+      sedih, semoga kamu segera menemukan
+      hal yang bisa bikin kamu tersenyum lagi.
+      <br><br>
+      Kamu nggak harus selalu sempurna.
+      Jadi diri sendiri juga sudah cukup.
+      Tetap jadi kamu yang unik, lucu,
+      baik, dan punya banyak hal indah
+      untuk dibagikan ke dunia. 🌷
+    </p>
+  </div>
+</section>
+
+<!-- ALASAN -->
+<section>
+  <h2 class="section-title">Things I Appreciate About You 💕</h2>
+
+  <p class="section-desc">
+    Ada banyak hal kecil yang layak
+    dihargai dari seseorang. Ini beberapa
+    hal yang ingin aku sampaikan ke kamu.
+  </p>
+
+  <div class="reason">🌸 Senyummu yang bisa bikin suasana lebih cerah.</div>
+  <div class="reason">🧸 Caramu menjadi diri sendiri tanpa harus jadi orang lain.</div>
+  <div class="reason">🎀 Hal-hal kecil tentangmu yang membuatmu unik.</div>
+  <div class="reason">🌷 Semangatmu, bahkan ketika harimu tidak mudah.</div>
+  <div class="reason">💗 Kehadiranmu yang membuat banyak momen terasa berarti.</div>
+  <div class="reason">✨ Caramu terus belajar dan bertumbuh setiap hari.</div>
+</section>
+
+<!-- BUNGA -->
+<section>
+  <h2 class="section-title">A Bouquet For You 💐</h2>
+
+  <div style="font-size:65px; margin:25px 0;">
+    🌷🌸🌷
+  </div>
+
+  <div class="card">
+    <p>
+      Kalau aku bisa memberikan sebuket bunga,
+      aku ingin setiap bunganya membawa pesan:
+      <br><br>
+      🌹 Merah muda untuk kebahagiaan.<br>
+      🌼 Kuning untuk hari-hari cerah.<br>
+      🌷 Ungu untuk mimpi-mimpi indah.<br>
+      🌸 Putih untuk ketenangan hati.
+      <br><br>
+      Semoga hari-harimu dipenuhi hal-hal
+      baik, tawa kecil, dan alasan untuk
+      merasa bangga pada dirimu sendiri. 💐
+    </p>
+  </div>
+</section>
+
+<!-- SURAT CINTA -->
+<section>
+  <h2 class="section-title">A Letter For You 💌</h2>
+
+  <div class="letter">
+Untuk kamu yang spesial... 🌷
+
+Terima kasih sudah menjadi dirimu sendiri.
+
+Aku mungkin nggak selalu punya kata-kata
+yang sempurna untuk mengungkapkan
+apa yang ingin aku sampaikan.
+
+Tapi aku berharap kamu tahu bahwa
+kamu pantas dihargai, didengarkan,
+dan diperlakukan dengan baik.
+
+Semoga kita bisa terus belajar
+memahami satu sama lain, saling mendukung,
+dan menciptakan banyak kenangan baik.
+
+Kalau suatu hari kamu merasa lelah,
+ingatlah untuk memberi dirimu waktu
+beristirahat. Kamu juga layak menerima
+kebaikan yang selama ini kamu berikan
+kepada orang lain.
+
+Jangan lupa bahagia, yaa!
+Semoga banyak bunga bermekaran
+di perjalanan hidupmu. 🌸
+
+With lots of good wishes,
+someone who appreciates you 💗
+  </div>
+</section>
+
+<!-- KEJUTAN -->
+<section>
+  <h2 class="section-title">One Last Surprise 🎁</h2>
+
+  <p class="section-desc">
+    Ada satu hadiah kecil lagi.
+    Coba tekan tombol di bawah ini! 🐰
+  </p>
+
+  <button onclick="showSurprise()">
+    Tekan aku! 💝
+  </button>
+
+  <div id="surprise">
+    <div class="big-heart">💖</div>
+
+    <div class="card">
+      <h3>Surpriseee! 🌷🎉</h3>
+
+      <p>
+        Yeayyy, kamu berhasil menemukan
+        kejutan terakhir! Hehehe. 🧸
+        <br><br>
+        Semoga setelah membaca halaman ini,
+        kamu punya sedikit alasan tambahan
+        untuk tersenyum hari ini.
+        <br><br>
+        Jangan lupa makan, minum air,
+        istirahat yang cukup, dan tetap
+        sayang sama dirimu sendiri, yaa.
+        <br><br>
+        Sending you a garden full of flowers! 💐
+      </p>
+    </div>
+
+    <div style="font-size:45px;">
+      🌷🌸🌼🌹🌺
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="font-size:35px;">🌷💗🌷</div>
+
+  <p>Dibuat dengan sepenuh hati</p>
+  <p>For someone who deserves kindness ✨</p>
+  <p>© 2026 • A Little Flower Gift</p>
+</footer>
+
+<!-- TOMBOL EFEK BUNGA -->
+<button class="music-btn" onclick="toggleFlowers()"
+        title="Nyalakan atau matikan bunga">
+  🌸
+</button>
+
+<script>
+let flowersOn = true;
+
+const flowerList = ["🌸", "🌷", "🌼", "💮", "💕", "✨"];
+
+function makeFlower() {
+  if (!flowersOn) return;
+
+  const flower = document.createElement("div");
+  flower.className = "flower";
+
+  flower.textContent =
+    flowerList[Math.floor(Math.random() * flowerList.length)];
+
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.fontSize = (16 + Math.random() * 18) + "px";
+  flower.style.animationDuration = (5 + Math.random() * 6) + "s";
+  flower.style.opacity = 0.5 + Math.random() * 0.5;
+
+  document.body.appendChild(flower);
+
+  setTimeout(() => flower.remove(), 12000);
+}
+
+setInterval(makeFlower, 700);
+
+function toggleFlowers() {
+  flowersOn = !flowersOn;
+
+  document.querySelector(".music-btn").textContent =
+    flowersOn ? "🌸" : "🍃";
+}
+
+function showSurprise() {
+  const surprise = document.getElementById("surprise");
+
+  surprise.style.display = "block";
+
+  surprise.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  for (let i = 0; i < 20; i++) {
+    setTimeout(makeFlower, i * 100);
+  }
+}
+</script>
+
+</body>
+</html>
